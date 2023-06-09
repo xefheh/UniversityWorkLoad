@@ -1,3 +1,4 @@
+using System.Reflection;
 using System.Security.Cryptography.X509Certificates;
 using UniversityWorkLoad.Infrastructure;
 using UniversityWorkLoad.MainFormSettings;
@@ -18,8 +19,16 @@ namespace UniversityWorkLoad
             const string connectionString = "Data Source=inspection.db";
             using var workloadContext = new WorkloadContext(connectionString);
             var adapter = new DataAdapter(workloadContext);
+            var tableControllers = new Dictionary<Type, dynamic>();
+            var entityTypes = Assembly.GetExecutingAssembly().GetTypes().Where(type => type.Namespace == "UniversityWorkLoad.DatabaseEntities");
+            foreach (var entityType in entityTypes)
+            {
+                var controllerType = typeof(DataGridViewController<>).MakeGenericType(entityType);
+                var controllerInstance = Activator.CreateInstance(controllerType, workloadContext);
+                tableControllers.Add(controllerType, controllerInstance);
+            }
             ApplicationConfiguration.Initialize();
-            Application.Run(new MainForm(adapter));
+            Application.Run(new MainForm(tableControllers));
         }
     }
 }

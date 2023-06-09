@@ -71,6 +71,7 @@
             _toolStrip.Size = new Size(800, 24);
             _toolStrip.TabIndex = 1;
             _toolStrip.Text = "_toolStrip";
+            _toolStrip.ItemClicked += _toolStrip_ItemClicked;
             // 
             // справочникиToolStripMenuItem
             // 
@@ -84,7 +85,6 @@
             кафедрыToolStripMenuItem.Name = "кафедрыToolStripMenuItem";
             кафедрыToolStripMenuItem.Size = new Size(167, 22);
             кафедрыToolStripMenuItem.Text = "Кафедры";
-            кафедрыToolStripMenuItem.Click += UpdateToFaculties;
             кафедрыToolStripMenuItem.Click += ColorClickHandler;
             // 
             // должностиToolStripMenuItem
@@ -92,7 +92,6 @@
             должностиToolStripMenuItem.Name = "должностиToolStripMenuItem";
             должностиToolStripMenuItem.Size = new Size(167, 22);
             должностиToolStripMenuItem.Text = "Должности";
-            должностиToolStripMenuItem.Click += UpdateToPositions;
             должностиToolStripMenuItem.Click += ColorClickHandler;
             // 
             // учебныеГруппыToolStripMenuItem
@@ -100,7 +99,6 @@
             учебныеГруппыToolStripMenuItem.Name = "учебныеГруппыToolStripMenuItem";
             учебныеГруппыToolStripMenuItem.Size = new Size(167, 22);
             учебныеГруппыToolStripMenuItem.Text = "Учебные группы";
-            учебныеГруппыToolStripMenuItem.Click += ColorClickHandler;
             учебныеГруппыToolStripMenuItem.Click += UpdateToStudyGroups;
             // 
             // дисциплиныToolStripMenuItem
@@ -108,7 +106,6 @@
             дисциплиныToolStripMenuItem.Name = "дисциплиныToolStripMenuItem";
             дисциплиныToolStripMenuItem.Size = new Size(167, 22);
             дисциплиныToolStripMenuItem.Text = "Дисциплины";
-            дисциплиныToolStripMenuItem.Click += UpdateToDisciplines;
             дисциплиныToolStripMenuItem.Click += ColorClickHandler;
             // 
             // таблицыToolStripMenuItem
@@ -123,7 +120,6 @@
             преподавателиToolStripMenuItem.Name = "преподавателиToolStripMenuItem";
             преподавателиToolStripMenuItem.Size = new Size(159, 22);
             преподавателиToolStripMenuItem.Text = "Преподаватели";
-            преподавателиToolStripMenuItem.Click += ColorClickHandler;
             преподавателиToolStripMenuItem.Click += UpdateToLecturers;
             // 
             // картыНагрузокToolStripMenuItem
@@ -131,7 +127,6 @@
             картыНагрузокToolStripMenuItem.Name = "картыНагрузокToolStripMenuItem";
             картыНагрузокToolStripMenuItem.Size = new Size(159, 22);
             картыНагрузокToolStripMenuItem.Text = "Карточки";
-            картыНагрузокToolStripMenuItem.Click += ColorClickHandler;
             картыНагрузокToolStripMenuItem.Click += UpdateToWorkCards;
             // 
             // нагрузкиToolStripMenuItem
@@ -139,7 +134,6 @@
             нагрузкиToolStripMenuItem.Name = "нагрузкиToolStripMenuItem";
             нагрузкиToolStripMenuItem.Size = new Size(159, 22);
             нагрузкиToolStripMenuItem.Text = "Нагрузки";
-            нагрузкиToolStripMenuItem.Click += ColorClickHandler;
             нагрузкиToolStripMenuItem.Click += UpdateToWorkLoadLine;
             // 
             // toolStrip1
@@ -190,6 +184,7 @@
             MainMenuStrip = _toolStrip;
             Name = "MainForm";
             Text = "MainForm";
+            Load += MainForm_Load;
             ((System.ComponentModel.ISupportInitialize)_mainGridView).EndInit();
             _toolStrip.ResumeLayout(false);
             _toolStrip.PerformLayout();
