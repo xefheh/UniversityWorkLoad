@@ -16,4 +16,6 @@ public class StudyGroup
 
     [Browsable(false)]
     public ICollection<WorkLoadLine> WorkLoadLines { get; set; }
+
+    public override string ToString() => GroupName;
 }

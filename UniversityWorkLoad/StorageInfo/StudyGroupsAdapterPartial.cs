@@ -6,7 +6,7 @@ namespace UniversityWorkLoad.StorageInfo;
 
 public partial class DataAdapter
 {
-    [DbGetAllMethod(typeof(StudyGroup))]
+    [DbGetAllMethod(typeof(StudyGroup)), ComplexPart(typeof(WorkLoadLine))]
     public BindingList<StudyGroup> GetStudyGroups() => _workloadContext.StudyGroups.Local.ToBindingList();
 
     [DbGetMethod(typeof(StudyGroup))]

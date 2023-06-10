@@ -16,4 +16,6 @@ public class Discipline
 
     [Browsable(false)]
     public ICollection<WorkLoadLine> WorkLoadLines { get; set; }
+
+    public override string ToString() => DisciplineName;
 }

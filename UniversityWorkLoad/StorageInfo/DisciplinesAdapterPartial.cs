@@ -1,12 +1,13 @@
 ﻿using System.ComponentModel;
 using System.Diagnostics;
+using Microsoft.EntityFrameworkCore;
 using UniversityWorkLoad.Attributes;
 using UniversityWorkLoad.DatabaseEntities;
 namespace UniversityWorkLoad.StorageInfo;
 
 public partial class DataAdapter
 {
-    [DbGetAllMethod(typeof(Discipline))]
+    [DbGetAllMethod(typeof(Discipline)), ComplexPart(typeof(WorkLoadLine))]
     public BindingList<Discipline> GetDisciplines() => _workloadContext.Disciplines.Local.ToBindingList();
 
     [DbGetMethod(typeof(Discipline))]

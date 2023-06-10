@@ -16,7 +16,6 @@ public class DgvController<T> : IDgvController<T>
         var itemType = typeof(T);
         var dbObjectsFormTypes = Assembly.GetExecutingAssembly().GetTypes().
             Where(t => t.GetCustomAttribute(typeof(DbObjectForm)) is not null);
-        if (itemType == typeof(WorkLoadLine)) return;
         var currentType  = dbObjectsFormTypes.Where(t =>
             t.CustomAttributes.First().ConstructorArguments[0].Value == itemType);
         s_formType = currentType.First();

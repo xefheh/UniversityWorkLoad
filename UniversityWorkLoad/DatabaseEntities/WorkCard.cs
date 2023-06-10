@@ -22,4 +22,6 @@ public class WorkCard
 
     [Browsable(false)]
     public ICollection<WorkLoadLine> WorkLoadLines { get; set; }
+
+    public override string ToString() => $"{CardId}: {Lecturer}: {StartPeriod} - {EndPeriod}";
 }
