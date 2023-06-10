@@ -107,7 +107,7 @@ namespace UniversityWorkLoad.MainFormSettings
             this.должностиToolStripMenuItem.Size = new System.Drawing.Size(167, 22);
             this.должностиToolStripMenuItem.Text = "Должности";
             this.должностиToolStripMenuItem.Click += ColorClickHandler;
-            this.должностиToolStripMenuItem.Click += UpdateToFaculties;
+            this.должностиToolStripMenuItem.Click += UpdateToPositions;
             // 
             // учебныеГруппыToolStripMenuItem
             // 
@@ -115,7 +115,7 @@ namespace UniversityWorkLoad.MainFormSettings
             this.учебныеГруппыToolStripMenuItem.Size = new System.Drawing.Size(167, 22);
             this.учебныеГруппыToolStripMenuItem.Text = "Учебные группы";
             this.учебныеГруппыToolStripMenuItem.Click += ColorClickHandler;
-            this.учебныеГруппыToolStripMenuItem.Click += UpdateToFaculties;
+            this.учебныеГруппыToolStripMenuItem.Click += UpdateToStudyGroups;
             // 
             // дисциплиныToolStripMenuItem
             // 
@@ -123,7 +123,7 @@ namespace UniversityWorkLoad.MainFormSettings
             this.дисциплиныToolStripMenuItem.Size = new System.Drawing.Size(167, 22);
             this.дисциплиныToolStripMenuItem.Text = "Дисциплины";
             this.дисциплиныToolStripMenuItem.Click += ColorClickHandler;
-            this.дисциплиныToolStripMenuItem.Click += UpdateToFaculties;
+            this.дисциплиныToolStripMenuItem.Click += UpdateToDisciplines;
             // 
             // таблицыToolStripMenuItem
             // 
@@ -141,7 +141,7 @@ namespace UniversityWorkLoad.MainFormSettings
             this.преподавателиToolStripMenuItem.Size = new System.Drawing.Size(159, 22);
             this.преподавателиToolStripMenuItem.Text = "Преподаватели";
             this.преподавателиToolStripMenuItem.Click += ColorClickHandler;
-            this.преподавателиToolStripMenuItem.Click += UpdateToFaculties;
+            this.преподавателиToolStripMenuItem.Click += UpdateToLecturers;
             // 
             // картыНагрузокToolStripMenuItem
             // 
@@ -149,7 +149,7 @@ namespace UniversityWorkLoad.MainFormSettings
             this.картыНагрузокToolStripMenuItem.Size = new System.Drawing.Size(159, 22);
             this.картыНагрузокToolStripMenuItem.Text = "Карточки";
             this.картыНагрузокToolStripMenuItem.Click += ColorClickHandler;
-            this.картыНагрузокToolStripMenuItem.Click += UpdateToFaculties;
+            this.картыНагрузокToolStripMenuItem.Click += UpdateToWorkCards;
             // 
             // нагрузкиToolStripMenuItem
             // 
@@ -157,7 +157,7 @@ namespace UniversityWorkLoad.MainFormSettings
             this.нагрузкиToolStripMenuItem.Size = new System.Drawing.Size(159, 22);
             this.нагрузкиToolStripMenuItem.Text = "Нагрузки";
             this.нагрузкиToolStripMenuItem.Click += ColorClickHandler;
-            this.нагрузкиToolStripMenuItem.Click += UpdateToFaculties;
+            this.нагрузкиToolStripMenuItem.Click += UpdateToWorkLoadLine;
             // 
             // сохранитьБазуДанныхToolStripMenuItem
             // 

@@ -7,13 +7,17 @@ namespace UniversityWorkLoad.DataFormatters;
 [DataFormatter(typeof(Position))]
 public class PositionDataFormatter : IDataFormatter<Position>
 {
-    public Position Create(object[] parameters)
+    public Position Create(object[] parameters) => new()
     {
-        throw new NotImplementedException();
-    }
+        PositionName = (string)parameters[0],
+        UpLimit = (int)parameters[1],
+        LowerLimit = (int)parameters[2]
+    };
 
     public void Update(Position data, object[] parameters)
     {
-        throw new NotImplementedException();
+        data.PositionName = (string)parameters[0];
+        data.UpLimit = (int)parameters[1];
+        data.LowerLimit = (int)parameters[2];
     }
 }

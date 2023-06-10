@@ -9,11 +9,16 @@ public partial class DataAdapter
     [DbGetAllMethod(typeof(Lecturer))]
     public BindingList<Lecturer> GetLecturers() => _workloadContext.Lecturers.Local.ToBindingList();
 
+    [DbGetMethod(typeof(Lecturer))]
     public Lecturer GetLecturer(object identity) => _workloadContext.Lecturers.Local.First(lecturer => lecturer.ReportCardId == (int)identity);
 
     [DbRemoveMethod(typeof(Lecturer))]
     public void RemoveLecturer(Lecturer lecturer) => _workloadContext.Lecturers.Local.Remove(lecturer);
 
     [DbAddMethod(typeof(Lecturer))]
-    public void AddLecturer(Lecturer lecturer) => _workloadContext.Lecturers.Local.Add(lecturer);
+    public void AddLecturer(Lecturer lecturer)
+    {
+        _workloadContext.Lecturers.Local.Add(lecturer);
+        SaveChanges();
+    }
 }

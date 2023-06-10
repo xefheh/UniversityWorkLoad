@@ -15,8 +15,8 @@ public class DgvController<T> : IDgvController<T>
         var itemType = typeof(T);
         var ttypes = Assembly.GetExecutingAssembly().GetTypes().
             Where(t => t.GetCustomAttribute(typeof(DbObjectForm)) is not null);
-        if(itemType == typeof(Faculty))
-            s_formType = ttypes.First(t => t.CustomAttributes.First().ConstructorArguments[0].Value == itemType);
+        if(itemType == typeof(Faculty) || itemType == typeof(StudyGroup) || itemType == typeof(Discipline) || itemType == typeof(Position))
+            s_formType = ttypes.First(t => t.CustomAttributes.ToArray()[0].ConstructorArguments[0].Value == itemType);
     }
 
     private readonly IRepository<T> _repository;

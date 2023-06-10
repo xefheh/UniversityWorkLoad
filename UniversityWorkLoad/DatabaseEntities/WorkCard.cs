@@ -14,6 +14,9 @@ public class WorkCard
     [DisplayName("Дата"), Column(TypeName = "date")]
     public DateOnly Date { get; set; }
 
+    [Browsable(false)]
+    public byte[] Photo { get; set; }
+
     [DisplayName("ФИО Преподавателя")]
     public virtual Lecturer? Lecturer { get; set; }
 

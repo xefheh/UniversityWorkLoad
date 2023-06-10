@@ -7,13 +7,7 @@ namespace UniversityWorkLoad.DataFormatters;
 [DataFormatter(typeof(StudyGroup))]
 public class StudyGroupDataFormatter : IDataFormatter<StudyGroup>
 {
-    public StudyGroup Create(object[] parameters)
-    {
-        throw new NotImplementedException();
-    }
+    public StudyGroup Create(object[] parameters) => new() { GroupName = (string)parameters[0] };
 
-    public void Update(StudyGroup data, object[] parameters)
-    {
-        throw new NotImplementedException();
-    }
+    public void Update(StudyGroup data, object[] parameters) => data.GroupName = (string)parameters[0];
 }
