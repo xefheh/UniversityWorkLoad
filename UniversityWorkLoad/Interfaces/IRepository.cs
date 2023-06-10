@@ -20,4 +20,6 @@ public interface IRepository<T>
     T GetRecord(object identity);
 
     void SaveDb();
+
+    Dictionary<Type, dynamic> GetParts();
 }

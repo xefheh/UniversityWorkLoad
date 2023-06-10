@@ -57,7 +57,6 @@
             this._cancenButton.TabIndex = 11;
             this._cancenButton.Text = "Отмена";
             this._cancenButton.UseVisualStyleBackColor = true;
-            this._cancenButton.Click += new System.EventHandler(this._cancenButton_Click);
             // 
             // _okButton
             // 
@@ -68,7 +67,6 @@
             this._okButton.TabIndex = 10;
             this._okButton.Text = "OK";
             this._okButton.UseVisualStyleBackColor = true;
-            this._okButton.Click += new System.EventHandler(this._okButton_Click);
             // 
             // label1
             // 
@@ -185,6 +183,7 @@
             this._loadPhotoButton.TabIndex = 24;
             this._loadPhotoButton.Text = "Выбрать фото";
             this._loadPhotoButton.UseVisualStyleBackColor = true;
+            this._loadPhotoButton.Click += new System.EventHandler(this._loadPhotoButton_Click);
             // 
             // LecturerRecordForm
             // 
@@ -208,6 +207,7 @@
             this.Controls.Add(this._surnameBox);
             this.Name = "LecturerRecordForm";
             this.Text = "LecturerRecordForm";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.LecturerRecordForm_FormClosing);
             this._photoBox.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this._photoBitmap)).EndInit();
             this.ResumeLayout(false);

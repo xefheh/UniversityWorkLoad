@@ -29,4 +29,7 @@ public class Lecturer
 
     [Browsable(false)]
     public ICollection<WorkCard> WorkCards { get; set; }
+
+    [Browsable(false)]
+    public byte[] Photo { get; set; }
 }

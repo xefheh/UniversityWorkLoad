@@ -1,4 +1,6 @@
-﻿namespace UniversityWorkLoad.Attributes;
+﻿using System.CodeDom;
+
+namespace UniversityWorkLoad.Attributes;
 
 [AttributeUsage(AttributeTargets.Method)]
 public class DbMethod : Attribute
@@ -26,12 +28,18 @@ public sealed class DbGetMethod : DbMethod { public DbGetMethod(Type type) : bas
 public sealed class DbUpdateMethod : DbMethod { public DbUpdateMethod(Type type) : base(type) { } }
 
 [AttributeUsage(AttributeTargets.Class)]
-public sealed class DbObjectForm : Attribute
+public class DbObjectForm : Attribute
 {
     public readonly Type Type;
 
     public DbObjectForm(Type type) => Type = type;
 }
+
+[AttributeUsage(AttributeTargets.Class)]
+public sealed class DbSimpleForm : DbObjectForm { public DbSimpleForm(Type type) : base(type) { } }
+
+[AttributeUsage(AttributeTargets.Class)]
+public sealed class DbComplexForm : DbObjectForm { public DbComplexForm(Type type) : base(type) { } }
 
 
 [AttributeUsage(AttributeTargets.Method)]
@@ -55,4 +63,12 @@ public sealed class DataFormatter : Attribute
     public readonly Type Type;
 
     public DataFormatter(Type type) => Type = type;
+}
+
+[AttributeUsage(AttributeTargets.Method)]
+public sealed class ComplexPart : Attribute
+{
+    public readonly Type Type;
+
+    public ComplexPart(Type type) => Type = type;
 }

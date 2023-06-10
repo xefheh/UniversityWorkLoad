@@ -5,7 +5,7 @@ using UniversityWorkLoad.Interfaces;
 
 namespace UniversityWorkLoad.RecordForms
 {
-    [DbObjectForm(typeof(Faculty))]
+    [DbSimpleForm(typeof(Faculty))]
     public partial class FacultyRecordForm : Form, IFormValidate, IRecordForm
     {
         public FacultyRecordForm()

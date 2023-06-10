@@ -1,5 +1,6 @@
 ﻿using System.ComponentModel;
 using System.Reflection;
+using Microsoft.EntityFrameworkCore;
 using UniversityWorkLoad.Attributes;
 using UniversityWorkLoad.DatabaseEntities;
 using UniversityWorkLoad.Interfaces;
@@ -13,10 +14,12 @@ public class DgvController<T> : IDgvController<T>
     static DgvController()
     {
         var itemType = typeof(T);
-        var ttypes = Assembly.GetExecutingAssembly().GetTypes().
+        var dbObjectsFormTypes = Assembly.GetExecutingAssembly().GetTypes().
             Where(t => t.GetCustomAttribute(typeof(DbObjectForm)) is not null);
-        if(itemType == typeof(Faculty) || itemType == typeof(StudyGroup) || itemType == typeof(Discipline) || itemType == typeof(Position))
-            s_formType = ttypes.First(t => t.CustomAttributes.ToArray()[0].ConstructorArguments[0].Value == itemType);
+        if (itemType == typeof(WorkCard) || itemType == typeof(WorkLoadLine)) return;
+        var currentType  = dbObjectsFormTypes.Where(t =>
+            t.CustomAttributes.First().ConstructorArguments[0].Value == itemType);
+        s_formType = currentType.First();
     }
 
     private readonly IRepository<T> _repository;
@@ -24,8 +27,9 @@ public class DgvController<T> : IDgvController<T>
     public DgvController(IRepository<T> repository) => _repository = repository;
 
     public void ShowForm()
-    { 
-        var recordForm = Activator.CreateInstance(s_formType, Array.Empty<object>());
+    {
+        var recordForm = Activator.CreateInstance(s_formType, s_formType.CustomAttributes.First().AttributeType == typeof(DbSimpleForm) ? 
+            Array.Empty<object>() : new object[] { _repository.GetParts() });
         if (recordForm is null) throw new NullReferenceException();
         var castForm = (Form)recordForm;
         var castInterface = (IRecordForm)recordForm;

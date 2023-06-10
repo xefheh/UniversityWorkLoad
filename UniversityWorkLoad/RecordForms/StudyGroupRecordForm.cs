@@ -13,7 +13,7 @@ using UniversityWorkLoad.Interfaces;
 
 namespace UniversityWorkLoad.RecordForms
 {
-    [DbObjectForm(typeof(StudyGroup))]
+    [DbSimpleForm(typeof(StudyGroup))]
     public partial class StudyGroupRecordForm : Form, IRecordForm, IFormValidate
     {
         public StudyGroupRecordForm()

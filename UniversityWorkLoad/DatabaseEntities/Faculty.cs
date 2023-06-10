@@ -16,4 +16,6 @@ public class Faculty
 
     [Browsable(false)]
     public virtual ICollection<Lecturer> Lecturers { get; set; }
+
+    public override string ToString() => FacultyName;
 }

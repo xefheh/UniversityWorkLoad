@@ -1,6 +1,5 @@
 ﻿using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
-using System.ComponentModel.DataAnnotations.Schema;
 using Microsoft.EntityFrameworkCore;
 
 namespace UniversityWorkLoad.DatabaseEntities;
@@ -22,4 +21,6 @@ public class Position
 
     [Browsable(false)]
     public ICollection<Lecturer> Lecturers { get; set; }
+
+    public override string ToString() => PositionName;
 }
