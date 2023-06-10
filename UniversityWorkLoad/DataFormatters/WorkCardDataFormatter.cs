@@ -7,13 +7,17 @@ namespace UniversityWorkLoad.DataFormatters;
 [DataFormatter(typeof(WorkCard))]
 public class WorkCardDataFormatter : IDataFormatter<WorkCard>
 {
-    public WorkCard Create(object[] parameters)
+    public WorkCard Create(object[] parameters) => new()
     {
-        throw new NotImplementedException();
-    }
+        StartPeriod = (DateOnly)parameters[0],
+        EndPeriod = (DateOnly)parameters[1],
+        Lecturer = (Lecturer)parameters[2]
+    };
 
     public void Update(WorkCard data, object[] parameters)
     {
-        throw new NotImplementedException();
+        data.StartPeriod = (DateOnly)parameters[0];
+        data.EndPeriod = (DateOnly)parameters[1];
+        data.Lecturer = (Lecturer)parameters[2];
     }
 }

@@ -16,7 +16,7 @@ public class DgvController<T> : IDgvController<T>
         var itemType = typeof(T);
         var dbObjectsFormTypes = Assembly.GetExecutingAssembly().GetTypes().
             Where(t => t.GetCustomAttribute(typeof(DbObjectForm)) is not null);
-        if (itemType == typeof(WorkCard) || itemType == typeof(WorkLoadLine)) return;
+        if (itemType == typeof(WorkLoadLine)) return;
         var currentType  = dbObjectsFormTypes.Where(t =>
             t.CustomAttributes.First().ConstructorArguments[0].Value == itemType);
         s_formType = currentType.First();
@@ -40,7 +40,8 @@ public class DgvController<T> : IDgvController<T>
     public void ShowForm(object identity)
     {
         var record = _repository.GetRecord(identity);
-        var recordForm = Activator.CreateInstance(s_formType, record);
+        var recordForm = Activator.CreateInstance(s_formType, s_formType.CustomAttributes.First().AttributeType == typeof(DbSimpleForm) ?
+            new object[] { record } : new object[] { record, _repository.GetParts() });
         if (recordForm is null) throw new NullReferenceException();
         var castForm = (Form)recordForm;
         var castInterface = (IRecordForm)recordForm;

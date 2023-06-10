@@ -20,6 +20,15 @@ namespace UniversityWorkLoad.RecordForms
         {
             InitializeComponent();
         }
+
+        public PositionRecordForm(Position position)
+        {
+            InitializeComponent();
+            _positionNameBox.Text = position.PositionName;
+            _upNumeric.Value = position.UpLimit;
+            _downNumeric.Value = position.LowerLimit;
+        }
+
         public object[] GetParams() => new object[] { _positionNameBox.Text, (int)_upNumeric.Value, (int)_downNumeric.Value };
 
         public bool IsValid() => _positionNameBox.Text != string.Empty &&

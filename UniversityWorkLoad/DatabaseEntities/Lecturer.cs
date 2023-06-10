@@ -25,7 +25,7 @@ public class Lecturer
     [DisplayName("Отчество")]
     public string? MiddleName { get; set; }
 
-    public override string ToString() => $"{Surname} + {Name[0]}. {MiddleName[0]}.";
+    public override string ToString() => $"{Surname} {Name[0]}. {MiddleName[0]}.";
 
     [Browsable(false)]
     public ICollection<WorkCard> WorkCards { get; set; }

@@ -20,7 +20,7 @@ namespace UniversityWorkLoad.RecordForms
     {
         private byte[] _photo;
 
-        public LecturerRecordForm(Dictionary<Type, dynamic> bindingsList)
+        public LecturerRecordForm(IReadOnlyDictionary<Type, dynamic> bindingsList)
         {
             InitializeComponent();
             InitializeComboBoxes(bindingsList);
@@ -28,15 +28,15 @@ namespace UniversityWorkLoad.RecordForms
             _photoBitmap.SizeMode = PictureBoxSizeMode.StretchImage;
         }
 
-        public LecturerRecordForm(Lecturer lecturer, Dictionary<Type, dynamic> bindingsList)
+        public LecturerRecordForm(Lecturer lecturer, IReadOnlyDictionary<Type, dynamic> bindingsList)
         {
             InitializeComponent();
             InitializeComboBoxes(bindingsList);
             _surnameBox.Text = lecturer.Surname;
             _nameBox.Text = lecturer.Name;
             _middleNameBox.Text = lecturer.MiddleName;
-            _positionBox.SelectedValue = lecturer.Position;
-            _facultyBox.SelectedValue = lecturer.Faculty;
+            _positionBox.SelectedItem = lecturer.Position;
+            _facultyBox.SelectedItem = lecturer.Faculty;
             LoadBitmap(lecturer.Photo);
             _photoBitmap.SizeMode = PictureBoxSizeMode.StretchImage;
         }
@@ -47,7 +47,7 @@ namespace UniversityWorkLoad.RecordForms
             _photoBitmap.Image = Image.FromStream(ms);
         }
 
-        private void InitializeComboBoxes(Dictionary<Type, dynamic> bindingsList)
+        private void InitializeComboBoxes(IReadOnlyDictionary<Type, dynamic> bindingsList)
         {
             _positionBox.DataSource = bindingsList[typeof(Position)];
             _facultyBox.DataSource = bindingsList[typeof(Faculty)];
@@ -56,7 +56,7 @@ namespace UniversityWorkLoad.RecordForms
         public object[] GetParams() => new object[]
         {
             _surnameBox.Text, _nameBox.Text, _middleNameBox.Text,
-            (Position)_positionBox.SelectedValue, (Faculty)_facultyBox.SelectedValue, _photo
+            (Position)_positionBox.SelectedItem, (Faculty)_facultyBox.SelectedItem, _photo
         };
 
         public bool IsValid()
