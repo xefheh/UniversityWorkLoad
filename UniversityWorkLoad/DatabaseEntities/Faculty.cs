@@ -8,7 +8,7 @@ namespace UniversityWorkLoad.DatabaseEntities;
 [Table("Faculty")]
 public class Faculty
 {
-    [DisplayName("Идентификатор кафедры"), Key]
+    [DisplayName("Идентификатор кафедры"), Key, DatabaseGenerated(DatabaseGeneratedOption.Identity)]
     public int FacultyId { get; set; }
 
     [DisplayName("Наименование кафедры")]

@@ -20,5 +20,6 @@ public class Position
     [DisplayName("Минимальная учебная нагрузка")]
     public decimal LowerLimit { get; set; }
 
+    [Browsable(false)]
     public ICollection<Lecturer> Lecturers { get; set; }
 }

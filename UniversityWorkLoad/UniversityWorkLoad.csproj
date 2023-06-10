@@ -19,7 +19,7 @@
 
   <ItemGroup>
     <Folder Include="DataControllers\" />
-    <Folder Include="Infrastructure\" />
+    <Folder Include="Exceptions\" />
   </ItemGroup>
 
   <ItemGroup>

@@ -1,15 +1,19 @@
 ﻿using System.ComponentModel;
+using UniversityWorkLoad.Attributes;
 using UniversityWorkLoad.DatabaseEntities;
 
 namespace UniversityWorkLoad.StorageInfo;
 
 public partial class DataAdapter
 {
+    [DbGetAllMethod(typeof(Lecturer))]
     public BindingList<Lecturer> GetLecturers() => _workloadContext.Lecturers.Local.ToBindingList();
 
     public Lecturer GetLecturer(object identity) => _workloadContext.Lecturers.Local.First(lecturer => lecturer.ReportCardId == (int)identity);
 
-    public void RemoveWorkLoadLine(Lecturer lecturer) => _workloadContext.Lecturers.Local.Remove(lecturer);
+    [DbRemoveMethod(typeof(Lecturer))]
+    public void RemoveLecturer(Lecturer lecturer) => _workloadContext.Lecturers.Local.Remove(lecturer);
 
-    public void AddWorkLoadLine(Lecturer lecturer) => _workloadContext.Lecturers.Local.Add(lecturer);
+    [DbAddMethod(typeof(Lecturer))]
+    public void AddLecturer(Lecturer lecturer) => _workloadContext.Lecturers.Local.Add(lecturer);
 }
