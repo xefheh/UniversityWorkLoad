@@ -13,4 +13,6 @@ public interface IDgvController<T>
     void RemoveRecord(object identity);
 
     void InvokeSaving();
+
+    T GetCardById(object identity);
 }

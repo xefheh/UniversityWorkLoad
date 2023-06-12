@@ -18,7 +18,7 @@ public partial class DataAdapter
     [DbAddMethod(typeof(WorkCard))]
     public void AddWorkCard(WorkCard workCard)
     {
-        _workloadContext.WorkCards.Local.Add(workCard);
+        _workloadContext.WorkCards.Add(workCard);
         SaveChanges();
     }
 }

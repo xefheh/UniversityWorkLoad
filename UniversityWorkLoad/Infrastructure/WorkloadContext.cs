@@ -38,9 +38,10 @@ public class WorkloadContext : DbContext
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
-        modelBuilder.Entity<WorkLoadLine>().HasKey(line => new {line.LineId});
+        modelBuilder.Entity<WorkLoadLine>().HasKey(x => new { x.WorkCardId, x.LineId });
+        base.OnModelCreating(modelBuilder);
     }
 
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder) =>
-        optionsBuilder.UseSqlite(_connectionString);
+        optionsBuilder.UseNpgsql(_connectionString);
 }

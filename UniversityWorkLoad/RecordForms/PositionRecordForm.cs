@@ -41,5 +41,10 @@ namespace UniversityWorkLoad.RecordForms
             DialogResult = DialogResult.None;
             IFormValidate.NotValidMsg();
         }
+
+        private void PositionRecordForm_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

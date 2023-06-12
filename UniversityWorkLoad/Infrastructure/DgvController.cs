@@ -52,4 +52,6 @@ public class DgvController<T> : IDgvController<T>
 
     public void RemoveRecord(object identity) => _repository.RemoveRecord(_repository.GetRecord(identity));
     public void InvokeSaving() => _repository.SaveDb();
+
+    public T GetCardById(object identity) => _repository.GetRecord(identity);
 }

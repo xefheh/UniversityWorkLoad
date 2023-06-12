@@ -17,7 +17,7 @@ namespace UniversityWorkLoad
         {
             var assemblyTypes = Assembly.GetExecutingAssembly().GetTypes().
                 Where(type => type.Namespace == "UniversityWorkLoad.DatabaseEntities");
-            const string connectionString = "Data Source=inspection.db";
+            const string connectionString = "Host=localhost;Port=5432;Database=WO24rkloads;Username=postgres;Password=1234";
             using var workloadContext = new WorkloadContext(connectionString);
             var adapter = new DataAdapter(workloadContext);
             var dgvControllers = new Dictionary<Type, dynamic>();

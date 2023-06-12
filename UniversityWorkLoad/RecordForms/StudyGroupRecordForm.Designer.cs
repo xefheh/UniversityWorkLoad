@@ -37,7 +37,7 @@
             // _cancenButton
             // 
             this._cancenButton.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this._cancenButton.Location = new System.Drawing.Point(407, 237);
+            this._cancenButton.Location = new System.Drawing.Point(204, 90);
             this._cancenButton.Name = "_cancenButton";
             this._cancenButton.Size = new System.Drawing.Size(127, 23);
             this._cancenButton.TabIndex = 7;
@@ -47,7 +47,7 @@
             // _okButton
             // 
             this._okButton.DialogResult = System.Windows.Forms.DialogResult.OK;
-            this._okButton.Location = new System.Drawing.Point(266, 237);
+            this._okButton.Location = new System.Drawing.Point(63, 90);
             this._okButton.Name = "_okButton";
             this._okButton.Size = new System.Drawing.Size(135, 23);
             this._okButton.TabIndex = 6;
@@ -57,7 +57,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(266, 190);
+            this.label1.Location = new System.Drawing.Point(63, 43);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(106, 15);
             this.label1.TabIndex = 5;
@@ -65,7 +65,7 @@
             // 
             // _groupName
             // 
-            this._groupName.Location = new System.Drawing.Point(266, 208);
+            this._groupName.Location = new System.Drawing.Point(63, 61);
             this._groupName.Name = "_groupName";
             this._groupName.Size = new System.Drawing.Size(268, 23);
             this._groupName.TabIndex = 4;
@@ -74,7 +74,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(410, 174);
             this.Controls.Add(this._cancenButton);
             this.Controls.Add(this._okButton);
             this.Controls.Add(this.label1);
