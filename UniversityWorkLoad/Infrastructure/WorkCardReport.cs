@@ -45,7 +45,7 @@ public class WorkCardReport
                 StartPeriod = workCard.StartPeriod.ToDateTime(TimeOnly.MinValue),
                 EndPeriod = workCard.EndPeriod.ToDateTime(TimeOnly.MinValue),
                 WorkLoadLines = (workCard.WorkLoadLines != null) ? 
-                    workCard.WorkLoadLines.Select(ReportItemValue.Create) :
+                    workCard.WorkLoadLines.OrderBy(x => x.LineId).Select(ReportItemValue.Create) :
                     new List<ReportItemValue>()
             };
         }
