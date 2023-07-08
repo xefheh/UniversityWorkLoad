@@ -1,13 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
-using UniversityWorkLoad.Attributes;
+﻿using UniversityWorkLoad.Attributes;
 using UniversityWorkLoad.DatabaseEntities;
 using UniversityWorkLoad.Interfaces;
 
@@ -19,6 +10,7 @@ namespace UniversityWorkLoad.RecordForms
         public PositionRecordForm()
         {
             InitializeComponent();
+            Text = "Создание должности";
         }
 
         public PositionRecordForm(Position position)
@@ -27,6 +19,7 @@ namespace UniversityWorkLoad.RecordForms
             _positionNameBox.Text = position.PositionName;
             _upNumeric.Value = position.UpLimit;
             _downNumeric.Value = position.LowerLimit;
+            Text = "Изменение должности";
         }
 
         public object[] GetParams() => new object[] { _positionNameBox.Text, (int)_upNumeric.Value, (int)_downNumeric.Value };

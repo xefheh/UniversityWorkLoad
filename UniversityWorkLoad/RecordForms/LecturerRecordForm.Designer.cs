@@ -51,7 +51,7 @@
             // _cancenButton
             // 
             this._cancenButton.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this._cancenButton.Location = new System.Drawing.Point(245, 304);
+            this._cancenButton.Location = new System.Drawing.Point(162, 260);
             this._cancenButton.Name = "_cancenButton";
             this._cancenButton.Size = new System.Drawing.Size(127, 23);
             this._cancenButton.TabIndex = 11;
@@ -61,7 +61,7 @@
             // _okButton
             // 
             this._okButton.DialogResult = System.Windows.Forms.DialogResult.OK;
-            this._okButton.Location = new System.Drawing.Point(104, 304);
+            this._okButton.Location = new System.Drawing.Point(21, 260);
             this._okButton.Name = "_okButton";
             this._okButton.Size = new System.Drawing.Size(135, 23);
             this._okButton.TabIndex = 10;
@@ -71,7 +71,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(104, 53);
+            this.label1.Location = new System.Drawing.Point(21, 9);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(61, 15);
             this.label1.TabIndex = 9;
@@ -79,7 +79,7 @@
             // 
             // _surnameBox
             // 
-            this._surnameBox.Location = new System.Drawing.Point(104, 71);
+            this._surnameBox.Location = new System.Drawing.Point(21, 27);
             this._surnameBox.Name = "_surnameBox";
             this._surnameBox.Size = new System.Drawing.Size(268, 23);
             this._surnameBox.TabIndex = 8;
@@ -87,7 +87,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(104, 98);
+            this.label2.Location = new System.Drawing.Point(21, 54);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(34, 15);
             this.label2.TabIndex = 13;
@@ -95,7 +95,7 @@
             // 
             // _nameBox
             // 
-            this._nameBox.Location = new System.Drawing.Point(104, 116);
+            this._nameBox.Location = new System.Drawing.Point(21, 72);
             this._nameBox.Name = "_nameBox";
             this._nameBox.Size = new System.Drawing.Size(268, 23);
             this._nameBox.TabIndex = 12;
@@ -103,7 +103,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(104, 142);
+            this.label3.Location = new System.Drawing.Point(21, 98);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(61, 15);
             this.label3.TabIndex = 15;
@@ -111,7 +111,7 @@
             // 
             // _middleNameBox
             // 
-            this._middleNameBox.Location = new System.Drawing.Point(104, 160);
+            this._middleNameBox.Location = new System.Drawing.Point(21, 116);
             this._middleNameBox.Name = "_middleNameBox";
             this._middleNameBox.Size = new System.Drawing.Size(268, 23);
             this._middleNameBox.TabIndex = 14;
@@ -119,7 +119,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(104, 186);
+            this.label4.Location = new System.Drawing.Point(21, 142);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(57, 15);
             this.label4.TabIndex = 17;
@@ -128,7 +128,7 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(104, 228);
+            this.label5.Location = new System.Drawing.Point(21, 184);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(72, 15);
             this.label5.TabIndex = 19;
@@ -137,7 +137,7 @@
             // _facultyBox
             // 
             this._facultyBox.FormattingEnabled = true;
-            this._facultyBox.Location = new System.Drawing.Point(104, 204);
+            this._facultyBox.Location = new System.Drawing.Point(21, 160);
             this._facultyBox.Name = "_facultyBox";
             this._facultyBox.Size = new System.Drawing.Size(268, 23);
             this._facultyBox.TabIndex = 20;
@@ -145,7 +145,7 @@
             // _positionBox
             // 
             this._positionBox.FormattingEnabled = true;
-            this._positionBox.Location = new System.Drawing.Point(104, 246);
+            this._positionBox.Location = new System.Drawing.Point(21, 202);
             this._positionBox.Name = "_positionBox";
             this._positionBox.Size = new System.Drawing.Size(268, 23);
             this._positionBox.TabIndex = 21;
@@ -153,7 +153,7 @@
             // _photoBox
             // 
             this._photoBox.Controls.Add(this._photoBitmap);
-            this._photoBox.Location = new System.Drawing.Point(418, 71);
+            this._photoBox.Location = new System.Drawing.Point(335, 27);
             this._photoBox.Name = "_photoBox";
             this._photoBox.Size = new System.Drawing.Size(270, 198);
             this._photoBox.TabIndex = 22;
@@ -170,14 +170,14 @@
             // 
             // _pathBox
             // 
-            this._pathBox.Location = new System.Drawing.Point(424, 275);
+            this._pathBox.Location = new System.Drawing.Point(341, 231);
             this._pathBox.Name = "_pathBox";
             this._pathBox.Size = new System.Drawing.Size(258, 23);
             this._pathBox.TabIndex = 23;
             // 
             // _loadPhotoButton
             // 
-            this._loadPhotoButton.Location = new System.Drawing.Point(424, 304);
+            this._loadPhotoButton.Location = new System.Drawing.Point(341, 260);
             this._loadPhotoButton.Name = "_loadPhotoButton";
             this._loadPhotoButton.Size = new System.Drawing.Size(258, 23);
             this._loadPhotoButton.TabIndex = 24;
@@ -189,7 +189,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(649, 320);
             this.Controls.Add(this._loadPhotoButton);
             this.Controls.Add(this._pathBox);
             this.Controls.Add(this._photoBox);
@@ -205,6 +205,7 @@
             this.Controls.Add(this._okButton);
             this.Controls.Add(this.label1);
             this.Controls.Add(this._surnameBox);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Name = "LecturerRecordForm";
             this.Text = "LecturerRecordForm";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.LecturerRecordForm_FormClosing);

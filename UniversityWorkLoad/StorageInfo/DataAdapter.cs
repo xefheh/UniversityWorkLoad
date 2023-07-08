@@ -45,4 +45,12 @@ public partial class DataAdapter
         foreach (var method in _loadMethods)
             method.Item2.Invoke(null, new[] { method.Item1 });
     }
+    public string[] GetStringProperties(object obj)
+    {
+        var properties = obj.GetType()
+            .GetProperties(BindingFlags.Public | BindingFlags.Instance)
+            .Where(property => property.CustomAttributes.Any(attribute => attribute.AttributeType == typeof(FilterCriteria)))
+            .Select(property => property.GetValue(obj).ToString().ToLower());
+        return properties.ToArray();
+    }
 }

@@ -22,7 +22,16 @@ public partial class DataAdapter
     [DbAddMethod(typeof(Faculty))]
     public void AddFaculty(Faculty faculty)
     {
-        _workloadContext.Faculties.Add(faculty);
-        SaveChanges();
+        _workloadContext.Faculties.Local.Add(faculty);
+        _workloadContext.SaveChanges();
+    }
+
+    [DbGetByFilter(typeof(Faculty))]
+    public List<Faculty> GetFacultyByFilter(string filter)
+    {
+        var filterCriteria = filter.Split(' ', StringSplitOptions.RemoveEmptyEntries);
+        return _workloadContext.Faculties.Local.Where(discipline => filterCriteria
+            .All(criteria => GetStringProperties(discipline).
+                Any(property => property.Contains(criteria.ToLower())))).ToList();
     }
 }   

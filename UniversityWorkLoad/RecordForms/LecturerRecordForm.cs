@@ -25,7 +25,10 @@ namespace UniversityWorkLoad.RecordForms
             InitializeComponent();
             InitializeComboBoxes(bindingsList);
             _photo = Array.Empty<byte>();
+            _pathBox.ReadOnly = true;
+            _pathBox.PlaceholderText = "Путь до фото";
             _photoBitmap.SizeMode = PictureBoxSizeMode.StretchImage;
+            Text = "Создание преподавателя";
         }
 
         public LecturerRecordForm(Lecturer lecturer, IReadOnlyDictionary<Type, dynamic> bindingsList)
@@ -35,10 +38,13 @@ namespace UniversityWorkLoad.RecordForms
             _surnameBox.Text = lecturer.Surname;
             _nameBox.Text = lecturer.Name;
             _middleNameBox.Text = lecturer.MiddleName;
+            _pathBox.ReadOnly = true;
+            _pathBox.PlaceholderText = "Путь до фото";
             _positionBox.SelectedItem = lecturer.Position;
             _facultyBox.SelectedItem = lecturer.Faculty;
             LoadBitmap(lecturer.Photo);
             _photoBitmap.SizeMode = PictureBoxSizeMode.StretchImage;
+            Text = "Изменение преподавателя";
         }
 
         private void LoadBitmap(byte[] photoStream)

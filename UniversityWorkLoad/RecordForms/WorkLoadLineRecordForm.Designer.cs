@@ -186,7 +186,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(497, 310);
+            this.ClientSize = new System.Drawing.Size(361, 310);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.label4);
@@ -201,6 +201,7 @@
             this.Controls.Add(this._cancenButton);
             this.Controls.Add(this._okButton);
             this.Controls.Add(this.label1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Name = "WorkLoadLineRecordForm";
             this.Text = "WorkLoadLineRecordForm";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.WorkCardLineForm_FormClosing);

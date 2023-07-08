@@ -17,15 +17,15 @@ namespace UniversityWorkLoad
         {
             var assemblyTypes = Assembly.GetExecutingAssembly().GetTypes().
                 Where(type => type.Namespace == "UniversityWorkLoad.DatabaseEntities");
-            const string connectionString = "Host=localhost;Port=5432;Database=WO24rkloads;Username=postgres;Password=1234";
+            const string connectionString = "Data source=workloads";
             using var workloadContext = new WorkloadContext(connectionString);
             var adapter = new DataAdapter(workloadContext);
-            var dgvControllers = new Dictionary<Type, dynamic>();
+            var dgvControllers = new Dictionary<string, dynamic>();
             foreach (var type in assemblyTypes)
             {
                 var repositoryType = typeof(DbRepository<>).MakeGenericType(type);
                 var controllerType = typeof(DgvController<>).MakeGenericType(type);
-                dgvControllers.Add(type, Activator.CreateInstance(controllerType, 
+                dgvControllers.Add(type.Name, Activator.CreateInstance(controllerType, 
                     Activator.CreateInstance(repositoryType, adapter)) ?? throw new NullReferenceException());
             }
             ApplicationConfiguration.Initialize();

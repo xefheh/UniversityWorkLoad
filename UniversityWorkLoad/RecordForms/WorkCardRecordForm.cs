@@ -21,14 +21,16 @@ namespace UniversityWorkLoad.RecordForms
         {
             InitializeComponent();
             InitializeComboBoxes(bindingsList);
+            Text = "Добавление карты нагрузки";
         }
 
         public WorkCardRecordForm(WorkCard workCard, IReadOnlyDictionary<Type, dynamic> bindingsList)
         {
             InitializeComponent();
             InitializeComboBoxes(bindingsList);
-            _startTimePicker.Value = workCard.StartPeriod.ToDateTime(TimeOnly.MinValue);
-            _endTimePicker.Value = workCard.EndPeriod.ToDateTime(TimeOnly.MinValue);
+            _lecturerBox.SelectedItem = workCard.Lecturer;
+            _startTimePicker.Value = workCard.Date.ToDateTime(TimeOnly.MinValue);
+            Text = "Изменение карты нагрузки";
         }
 
         private void InitializeComboBoxes(IReadOnlyDictionary<Type, dynamic> bindingsList) =>
@@ -37,11 +39,10 @@ namespace UniversityWorkLoad.RecordForms
         public object[] GetParams() => new object[]
         {
             DateOnly.FromDateTime(_startTimePicker.Value),
-            DateOnly.FromDateTime(_endTimePicker.Value),
             (Lecturer)_lecturerBox.SelectedItem
         };
 
-        public bool IsValid() => _startTimePicker.Value < _endTimePicker.Value;
+        public bool IsValid() => true;
 
         private void WorkCardRecordForm_FormClosing(object sender, FormClosingEventArgs e)
         {
@@ -49,6 +50,11 @@ namespace UniversityWorkLoad.RecordForms
             e.Cancel = true;
             DialogResult = DialogResult.None;
             IFormValidate.NotValidMsg();
+        }
+
+        private void WorkCardRecordForm_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

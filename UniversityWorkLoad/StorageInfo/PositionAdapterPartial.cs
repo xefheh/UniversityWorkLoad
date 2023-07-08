@@ -19,6 +19,15 @@ public partial class DataAdapter
     public void AddPosition(Position position)
     {
         _workloadContext.Positions.Local.Add(position);
-        SaveChanges();
+        _workloadContext.SaveChanges();
+    }
+
+    [DbGetByFilter(typeof(Position))]
+    public List<Position> GetPositionByFilter(string filter)
+    {
+        var filterCriteria = filter.Split(' ', StringSplitOptions.RemoveEmptyEntries);
+        return _workloadContext.Positions.Local.Where(discipline => filterCriteria
+            .All(criteria => GetStringProperties(discipline).
+                Any(property => property.Contains(criteria.ToLower())))).ToList();
     }
 }

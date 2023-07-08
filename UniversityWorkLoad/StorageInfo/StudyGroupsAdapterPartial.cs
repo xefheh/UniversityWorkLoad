@@ -19,6 +19,15 @@ public partial class DataAdapter
     public void AddStudyGroup(StudyGroup studyGroup)
     {
         _workloadContext.StudyGroups.Local.Add(studyGroup);
-        SaveChanges();
+        _workloadContext.SaveChanges();
+    }
+
+    [DbGetByFilter(typeof(StudyGroup))]
+    public List<StudyGroup> GetStudyGroupByFilter(string filter)
+    {
+        var filterCriteria = filter.Split(' ', StringSplitOptions.RemoveEmptyEntries);
+        return _workloadContext.StudyGroups.Local.Where(discipline => filterCriteria
+            .All(criteria => GetStringProperties(discipline).
+                Any(property => property.Contains(criteria.ToLower())))).ToList();
     }
 }

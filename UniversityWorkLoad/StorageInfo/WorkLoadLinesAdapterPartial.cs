@@ -19,6 +19,15 @@ public partial class DataAdapter
     public void AddWorkLoadLine(WorkLoadLine workLoadLine)
     {
         _workloadContext.WorkLoadLines.Local.Add(workLoadLine);
-        SaveChanges();
+        _workloadContext.SaveChanges();
+    }
+
+    [DbGetByFilter(typeof(WorkLoadLine))]
+    public List<WorkLoadLine> GetWorkLoadLinesByFilter(string filter)
+    {
+        var filterCriteria = filter.Split(' ', StringSplitOptions.RemoveEmptyEntries);
+        return _workloadContext.WorkLoadLines.Local.Where(discipline => filterCriteria
+            .All(criteria => GetStringProperties(discipline).
+                Any(property => property.Contains(criteria.ToLower())))).ToList();
     }
 }

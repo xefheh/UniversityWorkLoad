@@ -12,6 +12,7 @@ public class DbRepository<T> : IRepository<T>
     private static MethodInfo s_removeMethodInfo;
     private static MethodInfo s_getAllMethodInfo;
     private static MethodInfo s_getMethodInfo;
+    private static MethodInfo s_filterGetter;
     private static Type s_dataFormatterType;
     private static Dictionary<Type, MethodInfo> s_complexMethods;
 
@@ -60,6 +61,7 @@ public class DbRepository<T> : IRepository<T>
                 case DbRemoveMethod: s_removeMethodInfo = method; break;
                 case DbGetAllMethod: s_getAllMethodInfo = method; break;
                 case DbGetMethod: s_getMethodInfo = method; break;
+                case DbGetByFilter: s_filterGetter = method; break;
             }
         }
     }
@@ -83,7 +85,11 @@ public class DbRepository<T> : IRepository<T>
     public void UpdateRecord(T record, object[] attributes) { _dataFormatter.Update(record, attributes); }
 
     public T GetRecord(object identity) => (T)s_getMethodInfo.Invoke(_dataAdapter, new[] { identity });
+
     public void SaveDb() => _dataAdapter.SaveChanges();
+
+    public List<T> GetByFilter(string filter) => (List<T>)s_filterGetter.Invoke(_dataAdapter,
+        new[] { filter } );
 
     public Dictionary<Type, dynamic> GetParts()
     {

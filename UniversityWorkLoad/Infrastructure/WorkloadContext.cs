@@ -43,5 +43,5 @@ public class WorkloadContext : DbContext
     }
 
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder) =>
-        optionsBuilder.UseNpgsql(_connectionString);
+        optionsBuilder.UseSqlite(_connectionString);
 }

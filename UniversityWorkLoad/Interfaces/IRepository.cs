@@ -21,5 +21,7 @@ public interface IRepository<T>
 
     void SaveDb();
 
+    List<T> GetByFilter(string filter);
+
     Dictionary<Type, dynamic> GetParts();
 }

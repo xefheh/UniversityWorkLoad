@@ -27,6 +27,8 @@ public sealed class DbGetMethod : DbMethod { public DbGetMethod(Type type) : bas
 [AttributeUsage(AttributeTargets.Method)]
 public sealed class DbUpdateMethod : DbMethod { public DbUpdateMethod(Type type) : base(type) { } }
 
+public sealed class DbGetByFilter : DbMethod { public DbGetByFilter(Type type) : base(type) { } }
+
 [AttributeUsage(AttributeTargets.Class)]
 public class DbObjectForm : Attribute
 {
@@ -72,3 +74,6 @@ public sealed class ComplexPart : Attribute
 
     public ComplexPart(Type type) => Type = type;
 }
+
+[AttributeUsage(AttributeTargets.Property)]
+public sealed class FilterCriteria : Attribute { }

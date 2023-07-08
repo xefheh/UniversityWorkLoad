@@ -32,45 +32,43 @@ namespace UniversityWorkLoad.MainFormSettings
         /// </summary>
         private void InitializeComponent()
         {
+            System.Windows.Forms.ToolStripMenuItem Position;
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
-            this._mainGridView = new System.Windows.Forms.DataGridView();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             this._toolStrip = new System.Windows.Forms.MenuStrip();
             this.справочникиToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.кафедрыToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.должностиToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.учебныеГруппыToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.дисциплиныToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.Faculty = new System.Windows.Forms.ToolStripMenuItem();
+            this.StudyGroup = new System.Windows.Forms.ToolStripMenuItem();
+            this.Discipline = new System.Windows.Forms.ToolStripMenuItem();
             this.таблицыToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.преподавателиToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.картыНагрузокToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.нагрузкиToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.Lecturer = new System.Windows.Forms.ToolStripMenuItem();
+            this.WorkCard = new System.Windows.Forms.ToolStripMenuItem();
+            this.WorkLoadLine = new System.Windows.Forms.ToolStripMenuItem();
             this.сохранитьБазуДанныхToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.выгрузитьКартуToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.report = new System.Windows.Forms.ToolStripMenuItem();
+            this.отчётПоДисциплинамToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.общийОтчётToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
             this._addButton = new System.Windows.Forms.ToolStripButton();
             this.toolStripButton1 = new System.Windows.Forms.ToolStripButton();
             this.toolStripButton2 = new System.Windows.Forms.ToolStripButton();
             this.toolStripButton3 = new System.Windows.Forms.ToolStripButton();
-            ((System.ComponentModel.ISupportInitialize)(this._mainGridView)).BeginInit();
+            this._filterLabel = new System.Windows.Forms.ToolStripLabel();
+            this._filterBox = new System.Windows.Forms.ToolStripTextBox();
+            this._mainGridView = new System.Windows.Forms.DataGridView();
+            this.Position = new System.Windows.Forms.ToolStripMenuItem();
             this._toolStrip.SuspendLayout();
             this.toolStrip1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this._mainGridView)).BeginInit();
             this.SuspendLayout();
             // 
-            // _mainGridView
+            // Position
             // 
-            this._mainGridView.AllowUserToAddRows = false;
-            this._mainGridView.AllowUserToDeleteRows = false;
-            this._mainGridView.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this._mainGridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this._mainGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this._mainGridView.Location = new System.Drawing.Point(12, 39);
-            this._mainGridView.Name = "_mainGridView";
-            this._mainGridView.ReadOnly = true;
-            this._mainGridView.RowTemplate.Height = 25;
-            this._mainGridView.Size = new System.Drawing.Size(776, 383);
-            this._mainGridView.TabIndex = 0;
+            this.Position.Name = "Position";
+            this.Position.Size = new System.Drawing.Size(167, 22);
+            this.Position.Text = "Должности";
             // 
             // _toolStrip
             // 
@@ -78,89 +76,70 @@ namespace UniversityWorkLoad.MainFormSettings
             this.справочникиToolStripMenuItem,
             this.таблицыToolStripMenuItem,
             this.сохранитьБазуДанныхToolStripMenuItem,
-            this.выгрузитьКартуToolStripMenuItem});
+            this.выгрузитьКартуToolStripMenuItem,
+            this.report});
             this._toolStrip.Location = new System.Drawing.Point(0, 0);
             this._toolStrip.Name = "_toolStrip";
-            this._toolStrip.Size = new System.Drawing.Size(800, 24);
+            this._toolStrip.Size = new System.Drawing.Size(609, 24);
             this._toolStrip.TabIndex = 1;
             this._toolStrip.Text = "_toolStrip";
             // 
             // справочникиToolStripMenuItem
             // 
             this.справочникиToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.кафедрыToolStripMenuItem,
-            this.должностиToolStripMenuItem,
-            this.учебныеГруппыToolStripMenuItem,
-            this.дисциплиныToolStripMenuItem});
+            this.Faculty,
+            this.Position,
+            this.StudyGroup,
+            this.Discipline});
             this.справочникиToolStripMenuItem.Name = "справочникиToolStripMenuItem";
             this.справочникиToolStripMenuItem.Size = new System.Drawing.Size(94, 20);
             this.справочникиToolStripMenuItem.Text = "Справочники";
             // 
-            // кафедрыToolStripMenuItem
+            // Faculty
             // 
-            this.кафедрыToolStripMenuItem.Name = "кафедрыToolStripMenuItem";
-            this.кафедрыToolStripMenuItem.Size = new System.Drawing.Size(167, 22);
-            this.кафедрыToolStripMenuItem.Text = "Кафедры";
-            this.кафедрыToolStripMenuItem.Click += ColorClickHandler;
-            this.кафедрыToolStripMenuItem.Click += UpdateToFaculties;
+            this.Faculty.Name = "Faculty";
+            this.Faculty.Size = new System.Drawing.Size(167, 22);
+            this.Faculty.Text = "Кафедры";
             // 
-            // должностиToolStripMenuItem
+            // StudyGroup
             // 
-            this.должностиToolStripMenuItem.Name = "должностиToolStripMenuItem";
-            this.должностиToolStripMenuItem.Size = new System.Drawing.Size(167, 22);
-            this.должностиToolStripMenuItem.Text = "Должности";
-            this.должностиToolStripMenuItem.Click += ColorClickHandler;
-            this.должностиToolStripMenuItem.Click += UpdateToPositions;
+            this.StudyGroup.Name = "StudyGroup";
+            this.StudyGroup.Size = new System.Drawing.Size(167, 22);
+            this.StudyGroup.Text = "Учебные группы";
             // 
-            // учебныеГруппыToolStripMenuItem
+            // Discipline
             // 
-            this.учебныеГруппыToolStripMenuItem.Name = "учебныеГруппыToolStripMenuItem";
-            this.учебныеГруппыToolStripMenuItem.Size = new System.Drawing.Size(167, 22);
-            this.учебныеГруппыToolStripMenuItem.Text = "Учебные группы";
-            this.учебныеГруппыToolStripMenuItem.Click += ColorClickHandler;
-            this.учебныеГруппыToolStripMenuItem.Click += UpdateToStudyGroups;
-            // 
-            // дисциплиныToolStripMenuItem
-            // 
-            this.дисциплиныToolStripMenuItem.Name = "дисциплиныToolStripMenuItem";
-            this.дисциплиныToolStripMenuItem.Size = new System.Drawing.Size(167, 22);
-            this.дисциплиныToolStripMenuItem.Text = "Дисциплины";
-            this.дисциплиныToolStripMenuItem.Click += ColorClickHandler;
-            this.дисциплиныToolStripMenuItem.Click += UpdateToDisciplines;
+            this.Discipline.Name = "Discipline";
+            this.Discipline.Size = new System.Drawing.Size(167, 22);
+            this.Discipline.Text = "Дисциплины";
             // 
             // таблицыToolStripMenuItem
             // 
             this.таблицыToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.преподавателиToolStripMenuItem,
-            this.картыНагрузокToolStripMenuItem,
-            this.нагрузкиToolStripMenuItem});
+            this.Lecturer,
+            this.WorkCard,
+            this.WorkLoadLine});
             this.таблицыToolStripMenuItem.Name = "таблицыToolStripMenuItem";
             this.таблицыToolStripMenuItem.Size = new System.Drawing.Size(68, 20);
             this.таблицыToolStripMenuItem.Text = "Таблицы";
             // 
-            // преподавателиToolStripMenuItem
+            // Lecturer
             // 
-            this.преподавателиToolStripMenuItem.Name = "преподавателиToolStripMenuItem";
-            this.преподавателиToolStripMenuItem.Size = new System.Drawing.Size(159, 22);
-            this.преподавателиToolStripMenuItem.Text = "Преподаватели";
-            this.преподавателиToolStripMenuItem.Click += ColorClickHandler;
-            this.преподавателиToolStripMenuItem.Click += UpdateToLecturers;
+            this.Lecturer.Name = "Lecturer";
+            this.Lecturer.Size = new System.Drawing.Size(159, 22);
+            this.Lecturer.Text = "Преподаватели";
             // 
-            // картыНагрузокToolStripMenuItem
+            // WorkCard
             // 
-            this.картыНагрузокToolStripMenuItem.Name = "картыНагрузокToolStripMenuItem";
-            this.картыНагрузокToolStripMenuItem.Size = new System.Drawing.Size(159, 22);
-            this.картыНагрузокToolStripMenuItem.Text = "Карточки";
-            this.картыНагрузокToolStripMenuItem.Click += ColorClickHandler;
-            this.картыНагрузокToolStripMenuItem.Click += UpdateToWorkCards;
+            this.WorkCard.Name = "WorkCard";
+            this.WorkCard.Size = new System.Drawing.Size(159, 22);
+            this.WorkCard.Text = "Карточки";
             // 
-            // нагрузкиToolStripMenuItem
+            // WorkLoadLine
             // 
-            this.нагрузкиToolStripMenuItem.Name = "нагрузкиToolStripMenuItem";
-            this.нагрузкиToolStripMenuItem.Size = new System.Drawing.Size(159, 22);
-            this.нагрузкиToolStripMenuItem.Text = "Нагрузки";
-            this.нагрузкиToolStripMenuItem.Click += ColorClickHandler;
-            this.нагрузкиToolStripMenuItem.Click += UpdateToWorkLoadLine;
+            this.WorkLoadLine.Name = "WorkLoadLine";
+            this.WorkLoadLine.Size = new System.Drawing.Size(159, 22);
+            this.WorkLoadLine.Text = "Нагрузки";
             // 
             // сохранитьБазуДанныхToolStripMenuItem
             // 
@@ -176,6 +155,29 @@ namespace UniversityWorkLoad.MainFormSettings
             this.выгрузитьКартуToolStripMenuItem.Text = "Выгрузить карту";
             this.выгрузитьКартуToolStripMenuItem.Click += new System.EventHandler(this.выгрузитьКартуToolStripMenuItem_Click);
             // 
+            // report
+            // 
+            this.report.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.отчётПоДисциплинамToolStripMenuItem,
+            this.общийОтчётToolStripMenuItem});
+            this.report.Name = "report";
+            this.report.Size = new System.Drawing.Size(51, 20);
+            this.report.Text = "Отчёт";
+            // 
+            // отчётПоДисциплинамToolStripMenuItem
+            // 
+            this.отчётПоДисциплинамToolStripMenuItem.Name = "отчётПоДисциплинамToolStripMenuItem";
+            this.отчётПоДисциплинамToolStripMenuItem.Size = new System.Drawing.Size(202, 22);
+            this.отчётПоДисциплинамToolStripMenuItem.Text = "Отчёт по дисциплинам";
+            this.отчётПоДисциплинамToolStripMenuItem.Click += new System.EventHandler(this.отчётПоДисциплинамToolStripMenuItem_Click);
+            // 
+            // общийОтчётToolStripMenuItem
+            // 
+            this.общийОтчётToolStripMenuItem.Name = "общийОтчётToolStripMenuItem";
+            this.общийОтчётToolStripMenuItem.Size = new System.Drawing.Size(202, 22);
+            this.общийОтчётToolStripMenuItem.Text = "Общий отчёт";
+            this.общийОтчётToolStripMenuItem.Click += new System.EventHandler(this.общийОтчётToolStripMenuItem_Click);
+            // 
             // toolStrip1
             // 
             this.toolStrip1.Dock = System.Windows.Forms.DockStyle.Bottom;
@@ -183,10 +185,12 @@ namespace UniversityWorkLoad.MainFormSettings
             this._addButton,
             this.toolStripButton1,
             this.toolStripButton2,
-            this.toolStripButton3});
-            this.toolStrip1.Location = new System.Drawing.Point(0, 425);
+            this.toolStripButton3,
+            this._filterLabel,
+            this._filterBox});
+            this.toolStrip1.Location = new System.Drawing.Point(0, 436);
             this.toolStrip1.Name = "toolStrip1";
-            this.toolStrip1.Size = new System.Drawing.Size(800, 25);
+            this.toolStrip1.Size = new System.Drawing.Size(609, 25);
             this.toolStrip1.TabIndex = 2;
             this.toolStrip1.Text = "toolStrip1";
             // 
@@ -226,40 +230,97 @@ namespace UniversityWorkLoad.MainFormSettings
             this.toolStripButton3.Text = "Экспорт в Excel";
             this.toolStripButton3.Click += new System.EventHandler(this.toolStripButton3_Click);
             // 
+            // _filterLabel
+            // 
+            this._filterLabel.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
+            this._filterLabel.Name = "_filterLabel";
+            this._filterLabel.Size = new System.Drawing.Size(48, 22);
+            this._filterLabel.Text = "Фильтр";
+            // 
+            // _filterBox
+            // 
+            this._filterBox.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
+            this._filterBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this._filterBox.Name = "_filterBox";
+            this._filterBox.Size = new System.Drawing.Size(200, 25);
+            this._filterBox.TextChanged += new System.EventHandler(this._filterBox_TextChanged);
+            // 
+            // _mainGridView
+            // 
+            this._mainGridView.AllowUserToAddRows = false;
+            this._mainGridView.AllowUserToDeleteRows = false;
+            dataGridViewCellStyle3.BackColor = System.Drawing.Color.LightGray;
+            this._mainGridView.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle3;
+            this._mainGridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this._mainGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.Khaki;
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this._mainGridView.DefaultCellStyle = dataGridViewCellStyle4;
+            this._mainGridView.Dock = System.Windows.Forms.DockStyle.Fill;
+            this._mainGridView.Location = new System.Drawing.Point(0, 24);
+            this._mainGridView.Name = "_mainGridView";
+            this._mainGridView.ReadOnly = true;
+            this._mainGridView.RowTemplate.Height = 25;
+            this._mainGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this._mainGridView.Size = new System.Drawing.Size(609, 412);
+            this._mainGridView.TabIndex = 4;
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.toolStrip1);
+            this.ClientSize = new System.Drawing.Size(609, 461);
             this.Controls.Add(this._mainGridView);
+            this.Controls.Add(this.toolStrip1);
             this.Controls.Add(this._toolStrip);
             this.MainMenuStrip = this._toolStrip;
+            this.MinimumSize = new System.Drawing.Size(625, 500);
             this.Name = "MainForm";
-            this.Text = "MainForm";
-            ((System.ComponentModel.ISupportInitialize)(this._mainGridView)).EndInit();
+            this.Text = "Рассчёт нагрузки";
             this._toolStrip.ResumeLayout(false);
             this._toolStrip.PerformLayout();
             this.toolStrip1.ResumeLayout(false);
             this.toolStrip1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this._mainGridView)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
         }
 
-        #endregion
+        private void ClearSelectionHandler(object sender, EventArgs e)
+        {
+            if (_mainGridView.CurrentCell != null && _mainGridView.CurrentCell.RowIndex == -1)
+            {
+                _mainGridView.ClearSelection();
+            }
+        }
 
-        private DataGridView _mainGridView;
+        private void Discipline_Click(object sender, EventArgs e)
+        {
+            throw new NotImplementedException();
+        }
+
+        private void StudyGroup_Click(object sender, EventArgs e)
+        {
+            throw new NotImplementedException();
+        }
+
+        #endregion
         private MenuStrip _toolStrip;
         private ToolStripMenuItem справочникиToolStripMenuItem;
-        private ToolStripMenuItem кафедрыToolStripMenuItem;
-        private ToolStripMenuItem должностиToolStripMenuItem;
-        private ToolStripMenuItem учебныеГруппыToolStripMenuItem;
-        private ToolStripMenuItem дисциплиныToolStripMenuItem;
+        private ToolStripMenuItem Faculty;
+        private ToolStripMenuItem Position;
+        private ToolStripMenuItem StudyGroup;
+        private ToolStripMenuItem Discipline;
         private ToolStripMenuItem таблицыToolStripMenuItem;
-        private ToolStripMenuItem преподавателиToolStripMenuItem;
-        private ToolStripMenuItem картыНагрузокToolStripMenuItem;
-        private ToolStripMenuItem нагрузкиToolStripMenuItem;
+        private ToolStripMenuItem Lecturer;
+        private ToolStripMenuItem WorkCard;
+        private ToolStripMenuItem WorkLoadLine;
         private ToolStrip toolStrip1;
         private ToolStripButton _addButton;
         private ToolStripButton toolStripButton1;
@@ -273,62 +334,24 @@ namespace UniversityWorkLoad.MainFormSettings
             _lastColorCommand.MakeAction();
         }
 
-        private void UpdateToFaculties(object sender, EventArgs e)
+        private void UpdateDataSource(object sender, EventArgs e)
         {
-            _currentController = _dataGridViewControllers[typeof(Faculty)];
+            var typedSender = (ToolStripMenuItem)sender;
+            _currentController = _dataGridViewControllers[typedSender.Name];
             _mainGridView.DataSource = null;
-            _mainGridView.DataSource = _currentController.GetBindingRecords();
-            this.выгрузитьКартуToolStripMenuItem.Visible = false;
+            _mainGridView.DataSource = (_isFiltered) ? GetFilteredRecords() :
+                _currentController.GetBindingRecords();
+            this.выгрузитьКартуToolStripMenuItem.Visible = (typedSender.Name.Equals("WorkCard"));
+            this.report.Visible = (typedSender.Name.Equals("WorkLoadLine"));
         }
 
-        private void UpdateToLecturers(object sender, EventArgs e)
-        {
-            _currentController = _dataGridViewControllers[typeof(Lecturer)];
-            _mainGridView.DataSource = null;
-            _mainGridView.DataSource = _currentController.GetBindingRecords();
-            this.выгрузитьКартуToolStripMenuItem.Visible = false;
-        }
-
-        private void UpdateToDisciplines(object sender, EventArgs e)
-        {
-            _currentController = _dataGridViewControllers[typeof(Discipline)];
-            _mainGridView.DataSource = null;
-            _mainGridView.DataSource = _currentController.GetBindingRecords();
-            this.выгрузитьКартуToolStripMenuItem.Visible = false;
-        }
-
-        private void UpdateToPositions(object sender, EventArgs e)
-        {
-            _currentController = _dataGridViewControllers[typeof(Position)];
-            _mainGridView.DataSource = null;
-            _mainGridView.DataSource = _currentController.GetBindingRecords();
-            this.выгрузитьКартуToolStripMenuItem.Visible = false;
-        }
-
-        private void UpdateToStudyGroups(object sender, EventArgs e)
-        {
-            _currentController = _dataGridViewControllers[typeof(StudyGroup)];
-            _mainGridView.DataSource = null;
-            _mainGridView.DataSource = _currentController.GetBindingRecords();
-            this.выгрузитьКартуToolStripMenuItem.Visible = false;
-        }
-
-        private void UpdateToWorkCards(object sender, EventArgs e)
-        {
-            _currentController = _dataGridViewControllers[typeof(WorkCard)];
-            _mainGridView.DataSource = null;
-            _mainGridView.DataSource = _currentController.GetBindingRecords();
-            this.выгрузитьКартуToolStripMenuItem.Visible = true;
-        }
-
-        private void UpdateToWorkLoadLine(object sender, EventArgs e)
-        {
-            _currentController = _dataGridViewControllers[typeof(WorkLoadLine)];
-            _mainGridView.DataSource = null;
-            _mainGridView.DataSource = _currentController.GetBindingRecords();
-            this.выгрузитьКартуToolStripMenuItem.Visible = false;
-        }
         private ToolStripButton toolStripButton3;
         private ToolStripMenuItem выгрузитьКартуToolStripMenuItem;
+        private DataGridView _mainGridView;
+        private ToolStripLabel _filterLabel;
+        private ToolStripTextBox _filterBox;
+        private ToolStripMenuItem report;
+        private ToolStripMenuItem отчётПоДисциплинамToolStripMenuItem;
+        private ToolStripMenuItem общийОтчётToolStripMenuItem;
     }
 }

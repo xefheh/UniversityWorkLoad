@@ -79,6 +79,7 @@
             this.Controls.Add(this._okButton);
             this.Controls.Add(this.label1);
             this.Controls.Add(this._groupName);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Name = "StudyGroupRecordForm";
             this.Text = "StudyGroupRecordForm";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.StudyGroupRecordForm_FormClosing);

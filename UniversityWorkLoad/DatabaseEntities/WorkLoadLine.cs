@@ -1,8 +1,7 @@
 ﻿using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
-using DocumentFormat.OpenXml.Drawing.Charts;
-using Microsoft.EntityFrameworkCore;
+using UniversityWorkLoad.Attributes;
 
 namespace UniversityWorkLoad.DatabaseEntities;
 
@@ -12,10 +11,10 @@ public class WorkLoadLine
     [Browsable(false), Key, ForeignKey(nameof(WorkCard)), Column(Order = 2)] public int WorkCardId { get; set; }
 
 
-    [DisplayName("Номер строки"), Key, DatabaseGenerated(DatabaseGeneratedOption.Identity), Column(Order = 1)]
+    [DisplayName("Номер строки"), Key, DatabaseGenerated(DatabaseGeneratedOption.Identity), Column(Order = 1), FilterCriteria]
     public int LineId { get; set; }
 
-    [DisplayName("Номер карты")]
+    [DisplayName("Карта"), FilterCriteria]
     public virtual WorkCard? WorkCard { get; set; }
 
 

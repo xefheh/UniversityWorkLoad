@@ -112,7 +112,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(379, 225);
+            this.ClientSize = new System.Drawing.Size(338, 205);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this._downNumeric);
@@ -121,6 +121,7 @@
             this.Controls.Add(this._okButton);
             this.Controls.Add(this.label1);
             this.Controls.Add(this._positionNameBox);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Name = "PositionRecordForm";
             this.Text = "PositionRecordForm";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.PositionRecordForm_FormClosing);

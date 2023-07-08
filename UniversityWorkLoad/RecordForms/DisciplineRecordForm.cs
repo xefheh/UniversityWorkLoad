@@ -19,11 +19,13 @@ namespace UniversityWorkLoad.RecordForms
         public DisciplineRecordForm()
         {
             InitializeComponent();
+            Text = "Создание дисциплины";
         }
         public DisciplineRecordForm(Discipline discipline)
         {
             InitializeComponent();
             _disciplineBox.Text = discipline.DisciplineName;
+            Text = "Изменение дисциплины";
         }
 
         public object[] GetParams() => new object[] { _disciplineBox.Text };

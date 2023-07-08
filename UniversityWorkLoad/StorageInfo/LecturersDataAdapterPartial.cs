@@ -19,6 +19,15 @@ public partial class DataAdapter
     public void AddLecturer(Lecturer lecturer)
     {
         _workloadContext.Lecturers.Local.Add(lecturer);
-        SaveChanges();
+        _workloadContext.SaveChanges();
+    }
+
+    [DbGetByFilter(typeof(Lecturer))]
+    public List<Lecturer> GetLecturerByFilter(string filter)
+    {
+        var filterCriteria = filter.Split(' ', StringSplitOptions.RemoveEmptyEntries);
+        return _workloadContext.Lecturers.Local.Where(discipline => filterCriteria
+            .All(criteria => GetStringProperties(discipline).
+                Any(property => property.Contains(criteria.ToLower())))).ToList();
     }
 }

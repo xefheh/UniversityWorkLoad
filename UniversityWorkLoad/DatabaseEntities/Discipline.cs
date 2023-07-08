@@ -1,17 +1,17 @@
 ﻿using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
-using Microsoft.EntityFrameworkCore;
+using UniversityWorkLoad.Attributes;
 
 namespace UniversityWorkLoad.DatabaseEntities;
 
 [Table("Discipline")]
 public class Discipline
 {
-    [DisplayName("Идентификатор дисциплины"), Key]
+    [DisplayName("Идентификатор дисциплины"), Key, FilterCriteria]
     public int DisciplineId { get; set; }
 
-    [DisplayName("Наименование дисциплины")]
+    [DisplayName("Наименование дисциплины"), FilterCriteria]
     public string? DisciplineName { get; set; }
 
     [Browsable(false)]

@@ -1,13 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
-using UniversityWorkLoad.Attributes;
+﻿using UniversityWorkLoad.Attributes;
 using UniversityWorkLoad.DatabaseEntities;
 using UniversityWorkLoad.Interfaces;
 
@@ -20,6 +11,7 @@ namespace UniversityWorkLoad.RecordForms
         {
             InitializeComponent();
             InitializeComboBoxes(bindingsList);
+            Text = "Добавление нагрузки";
         }
 
         public WorkLoadLineRecordForm(WorkLoadLine line, IReadOnlyDictionary<Type, dynamic> bindingsList)
@@ -32,6 +24,7 @@ namespace UniversityWorkLoad.RecordForms
             _lectureHours.Value = line.LectureHours;
             _practiceHours.Value = line.PracticeHours;
             _otherHours.Value = line.OtherHours;
+            Text = "Изменение нагрузки";
         }
 
         private void InitializeComboBoxes(IReadOnlyDictionary<Type, dynamic> bindingsList)

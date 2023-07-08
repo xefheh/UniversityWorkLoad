@@ -19,12 +19,14 @@ namespace UniversityWorkLoad.RecordForms
         public StudyGroupRecordForm()
         {
             InitializeComponent();
+            Text = "Добавление учебной группы";
         }
 
         public StudyGroupRecordForm(StudyGroup group)
         {
             InitializeComponent();
             _groupName.Text = group.GroupName;
+            Text = "Изменение учебной группы";
         }
 
         public object[] GetParams() => new object[] { _groupName.Text };

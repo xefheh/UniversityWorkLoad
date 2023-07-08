@@ -18,7 +18,16 @@ public partial class DataAdapter
     [DbAddMethod(typeof(WorkCard))]
     public void AddWorkCard(WorkCard workCard)
     {
-        _workloadContext.WorkCards.Add(workCard);
-        SaveChanges();
+        _workloadContext.WorkCards.Local.Add(workCard);
+        _workloadContext.SaveChanges();
+    }
+
+    [DbGetByFilter(typeof(WorkCard))]
+    public List<WorkCard> GetWorkCardsByFilter(string filter)
+    {
+        var filterCriteria = filter.Split(' ', StringSplitOptions.RemoveEmptyEntries);
+        return _workloadContext.WorkCards.Local.Where(discipline => filterCriteria
+            .All(criteria => GetStringProperties(discipline).
+                Any(property => property.Contains(criteria.ToLower())))).ToList();
     }
 }

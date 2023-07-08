@@ -15,4 +15,6 @@ public interface IDgvController<T>
     void InvokeSaving();
 
     T GetCardById(object identity);
+
+    List<T> GetByFilterRecords(string filter);
 }

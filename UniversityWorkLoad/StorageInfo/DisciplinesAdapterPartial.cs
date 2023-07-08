@@ -1,5 +1,7 @@
 ﻿using System.ComponentModel;
 using System.Diagnostics;
+using System.Reflection;
+using DocumentFormat.OpenXml.Office2010.Excel;
 using Microsoft.EntityFrameworkCore;
 using UniversityWorkLoad.Attributes;
 using UniversityWorkLoad.DatabaseEntities;
@@ -20,6 +22,15 @@ public partial class DataAdapter
     public void AddDiscipline(Discipline discipline)
     {
         _workloadContext.Disciplines.Local.Add(discipline);
-        SaveChanges();
+        _workloadContext.SaveChanges();
+    }
+
+    [DbGetByFilter(typeof(Discipline))]
+    public List<Discipline> GetDisciplineByFilter(string filter)
+    {
+        var filterCriteria = filter.Split(' ', StringSplitOptions.RemoveEmptyEntries);
+        return _workloadContext.Disciplines.Local.Where(discipline => filterCriteria
+            .All(criteria => GetStringProperties(discipline).
+                Any(property => property.Contains(criteria.ToLower())))).ToList();
     }
 }

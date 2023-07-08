@@ -11,12 +11,14 @@ namespace UniversityWorkLoad.RecordForms
         public FacultyRecordForm()
         {
             InitializeComponent();
+            Text = "Создание кафедры";
         }
 
         public FacultyRecordForm(Faculty faculty)
         {
             InitializeComponent();
             _facultyNameBox.Text = faculty.FacultyName;
+            Text = "Изменение кафедры";
         }
 
         public object[] GetParams() => new object[] { _facultyNameBox.Text };

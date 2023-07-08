@@ -54,4 +54,5 @@ public class DgvController<T> : IDgvController<T>
     public void InvokeSaving() => _repository.SaveDb();
 
     public T GetCardById(object identity) => _repository.GetRecord(identity);
+    public List<T> GetByFilterRecords(string filter) => _repository.GetByFilter(filter);
 }

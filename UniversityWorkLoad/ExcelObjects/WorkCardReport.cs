@@ -3,7 +3,7 @@ using UniversityWorkLoad.DatabaseEntities;
 using ClosedXML.Report;
 using UniversityWorkLoad.StorageInfo;
 
-namespace UniversityWorkLoad.Infrastructure;
+namespace UniversityWorkLoad.ExcelObjects;
 
 public class WorkCardReport
 {
@@ -12,14 +12,16 @@ public class WorkCardReport
 
     public void MakeReport()
     {
-        var template = new XLTemplate("pattern.xltx");
+        var template = new XLTemplate("ExcelPatterns/WorkCardPattern.xltx");
+        var sfd = new SaveFileDialog();
+        sfd.Filter = "XLSX|*.xlsx|XLS|*.xls";
+        if (sfd.ShowDialog() != DialogResult.OK) return;
         var reportData = ReportData.Transform(_workCard);
         template.AddVariable(reportData);
         template.Generate();
         template.Workbook.Worksheets.Worksheet(template.Workbook.Worksheets.First().Name).ColumnsUsed()
             .AdjustToContents();
-        template.SaveAs("report.xlsx");
-        Process.Start(new ProcessStartInfo("report.xlsx") { UseShellExecute = true });
+        template.SaveAs(sfd.FileName);
     }
 
     private class ReportData
@@ -30,9 +32,7 @@ public class WorkCardReport
 
         public string Position { get; set; }
 
-        public DateTime StartPeriod { get; set; }
-
-        public DateTime EndPeriod { get; set; }
+        public DateTime Date { get; set; }
 
         public IEnumerable<ReportItemValue> WorkLoadLines { get; set; } = new List<ReportItemValue>();
 
@@ -40,12 +40,14 @@ public class WorkCardReport
         {
             return new ReportData()
             {
-                CardId = workCard.CardId, Lecturer = workCard.Lecturer.ToString(),
-                Position = workCard.Lecturer.Position.ToString(), ReportCardId = workCard.Lecturer.ReportCardId,
-                StartPeriod = workCard.StartPeriod.ToDateTime(TimeOnly.MinValue),
-                EndPeriod = workCard.EndPeriod.ToDateTime(TimeOnly.MinValue),
-                WorkLoadLines = (workCard.WorkLoadLines != null) ? 
-                    workCard.WorkLoadLines.OrderBy(x => x.LineId).Select(ReportItemValue.Create) :
+                CardId = workCard.CardId,
+                Lecturer = workCard.Lecturer.ToString(),
+                Position = workCard.Lecturer.Position.ToString(),
+                ReportCardId = workCard.Lecturer.ReportCardId,
+                Date = workCard.Date.ToDateTime(TimeOnly.MinValue),
+                WorkLoadLines = workCard.WorkLoadLines != null ?
+                    workCard.WorkLoadLines.OrderBy(x => x.LineId).Select((workLoadLine, id) =>
+                        ReportItemValue.Create(workLoadLine, id + 1)) :
                     new List<ReportItemValue>()
             };
         }
@@ -60,13 +62,16 @@ public class WorkCardReport
         public int PracticeHours { get; set; }
         public int OtherHours { get; set; }
 
-        public static ReportItemValue Create(WorkLoadLine workLoad)
+        public static ReportItemValue Create(WorkLoadLine workLoad, int lineId)
         {
             return new ReportItemValue
             {
-                StudyGroup = workLoad.StudyGroup.ToString(), Discipline = workLoad.Discipline.ToString(),
-                LecturerHours = workLoad.LectureHours, PracticeHours = workLoad.PracticeHours,
-                OtherHours = workLoad.OtherHours, Id = workLoad.LineId
+                StudyGroup = workLoad.StudyGroup.ToString(),
+                Discipline = workLoad.Discipline.ToString(),
+                LecturerHours = workLoad.LectureHours,
+                PracticeHours = workLoad.PracticeHours,
+                OtherHours = workLoad.OtherHours,
+                Id = lineId
             };
         }
     }
